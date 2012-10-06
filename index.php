@@ -111,6 +111,8 @@
 						array.push([index, value]);
 					});
 					drawChart(array);
+					$textarea.val( data.text );
+					$('input[type=file]').val('');
         		}
 			}; 
 

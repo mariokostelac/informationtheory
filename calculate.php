@@ -4,12 +4,13 @@
 
 	$return = array();
 
-	$text = mb_strtolower($_POST['text'], 'UTF-8');
+	$text = mb_strtolower(stripslashes($_POST['text']), 'UTF-8');
 	if (isset($_FILES['file']))
 		$text = mb_strtolower(file_get_contents($_FILES['file']['tmp_name']), 'UTF-8');
 
 	$lang = $_POST['lang'];
 	$return['occurences'] = array();
+	$return['text'] = $text;
 
 	// remove everyhing except letters
 	$text = preg_replace("/([^a-zčćžšđ]*)/", "", $text);
